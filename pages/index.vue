@@ -1,91 +1,61 @@
 <template>
   <div class="home-page">
-      <section class="intro">
-       <h1>Get THe latest Tech new</h1>
-      </section>
-      <section class="featured-posts">
-       <nuxt-link :to="'/posts/' + 1">
-          <article class="post-preview">
-            <div class="post-thumbnail" style="background-image: url('')"></div>
-            <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Previw Text</p>
-            </div>
-          </article>
-       </nuxt-link>
-        <nuxt-link :to="'/posts/' + 2">
-          <article class="post-preview">
-           <div  class="post-thumbnail"></div>
-           <div   class="post-content">
-           <h1>Post Title 2</h1>
-           <p>Previw Text 2</p>
-           </div>
-          </article>
-       </nuxt-link>
-      </section>
+    <section class="intro">
+      <h1>Get the latest tech news!</h1>
+    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
-export default {
-  setup () {
-    
+import PostList from '@/components/Posts/PostList'
 
-    return {}
+export default {
+  components: {
+    PostList
   }
 }
 </script>
 
+
 <style scoped>
-.single-post-page {
+.intro {
+  height: 300px;
+  position: relative;
   padding: 30px;
-  text-align: center;
   box-sizing: border-box;
+  background-image: url('~assets/images/main-page-background.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
-.post {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .post {
-    width: 600px;
-    margin: auto;
-  }
-}
-
-.post-title {
-  margin: 0;
-}
-
-.post-details {
+.intro h1 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  font-size: 1.5rem;
+  color: black;
+  background-color: rgb(211, 211, 211);
   padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px black;
   box-sizing: border-box;
-  border-bottom: 3px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  border: 1px solid black;
 }
 
 @media (min-width: 768px) {
-  .post-details {
-    flex-direction: row;
+  .intro h1 {
+    font-size: 2rem;
   }
 }
 
-.post-detail {
-  color: rgb(88, 88, 88);
-  margin: 0 10px;
-}
-
-.post-feedback a {
-  color: red;
-  text-decoration: none;
-}
-
-.post-feedback a:hover,
-.post-feedback a:active {
-  color: salmon;
+.featured-posts {
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 </style>
