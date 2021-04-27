@@ -35,9 +35,9 @@ export default {
             required: true
         }
     },
-    computed:{
-        postLink(){
-            return this.isAdmin ? '/admin' + this.id : '/posts/' + this.id
+    computed: {
+        postLink() {
+            return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
         }
     }
 }
