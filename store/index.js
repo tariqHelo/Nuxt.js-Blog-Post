@@ -34,10 +34,7 @@ const createStore = () => {
           .then(data => {
             const postsArray = [];
             for (const key in data) {
-              postsArray.push({
-                ...data[key],
-                id: key
-              });
+              postsArray.push({ ...data[key], id: key });
             }
             vuexContext.commit("setPosts", postsArray);
           })
@@ -51,14 +48,11 @@ const createStore = () => {
         return this.$axios
           .$post(
             "https://nuxt-blog.firebaseio.com/posts.json?auth=" +
-            vuexContext.state.token,
+              vuexContext.state.token,
             createdPost
           )
           .then(data => {
-            vuexContext.commit("addPost", {
-              ...createdPost,
-              id: data.name
-            });
+            vuexContext.commit("addPost", { ...createdPost, id: data.name });
           })
           .catch(e => console.log(e));
       },
@@ -66,9 +60,9 @@ const createStore = () => {
         return this.$axios
           .$put(
             "https://nuxt-blog.firebaseio.com/posts/" +
-            editedPost.id +
-            ".json?auth=" +
-            vuexContext.state.token,
+              editedPost.id +
+              ".json?auth=" +
+              vuexContext.state.token,
             editedPost
           )
           .then(res => {
@@ -106,9 +100,7 @@ const createStore = () => {
               "expirationDate",
               new Date().getTime() + Number.parseInt(result.expiresIn) * 1000
             );
-            return this.$axios.$post('http://localhost:3000/api/track-data', {
-              data: 'Authenticated!'
-            })
+            return this.$axios.$post('http://localhost:3000/api/track-data', {data: 'Authenticated!'})
           })
           .catch(e => console.log(e));
       },
@@ -130,7 +122,7 @@ const createStore = () => {
             .split(";")
             .find(c => c.trim().startsWith("expirationDate="))
             .split("=")[1];
-        } else {
+        } else if (process.client) {
           token = localStorage.getItem("token");
           expirationDate = localStorage.getItem("tokenExpiration");
         }

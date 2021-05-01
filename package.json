@@ -1,23 +1,24 @@
 {
-  "name": "nuxt-blog",
+  "name": "nuxt-course",
   "version": "1.0.0",
+  "description": "Nuxt.js course for Udemy",
+  "author": "Maximilian Schwarzmüller",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.1",
-    "@nuxtjs/axios": "^5.13.1",
-    "axios": "^0.21.1",
-    "core-js": "^3.8.3",
-    "nuxt": "^2.14.12",
-    "vuesax": "^4.0.1-alpha.25"
+    "@nuxtjs/axios": "^4.5.2",
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "js-cookie": "^2.2.0",
+    "nuxt": "^1.0.0"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.12",
-    "@nuxt/typescript-build": "^2.0.4"
+    "cross-env": "^5.0.1"
   }
 }
